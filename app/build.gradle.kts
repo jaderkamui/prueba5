@@ -1,65 +1,48 @@
 plugins {
-    id("com.android.application") version "8.1.0" apply false
-    id("org.jetbrains.kotlin.android") version "1.9.24" apply false
-    id("org.jetbrains.kotlin.plugin.compose") version "1.9.24" apply false
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
-    namespace = "com.jadermunoz.myretail"
-    compileSdk = 34
+    // ... (configuración anterior)
 
-    defaultConfig {
-        applicationId = "com.jadermunoz.myretail"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
     buildFeatures {
         compose = true
     }
+
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.14-dev-k2"
+        // No es necesario especificar la versión aquí, se gestiona con el compose-bom
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
+
+    // ... (configuración anterior)
 }
 
 dependencies {
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.24") // Versión consistente de Kotlin
+
+    implementation(platform("androidx.compose:compose-bom:2023.08.00")) // Versión consistente de Compose
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("androidx.activity:activity-compose:1.8.2")
+
+    // Dependencias agregadas
+    implementation("com.airbnb.android:lottie-compose:6.0.0") // Lottie para animaciones
+    implementation("io.coil-kt:coil-compose:2.3.0") // Coil para cargar imágenes
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0") // MPAndroidChart para gráficos
+    implementation("androidx.camera:camera-core:1.2.0") // Cámara
+    implementation("androidx.camera:camera-camera2:1.2.0") // Cámara
+    implementation("androidx.camera:camera-lifecycle:1.2.0") // Cámara
+    implementation("androidx.camera:camera-view:1.2.0") // Cámara
+    implementation("androidx.activity:activity-ktx:1.7.2") // Para la captura de fotos
+    implementation("androidx.media3:media3-exoplayer:1.2.0") // Para la reproducción de audio
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

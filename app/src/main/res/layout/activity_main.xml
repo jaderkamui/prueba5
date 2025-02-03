@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.airbnb.android.lottie.LottieAnimationView
+        android:id="@+id/animacionRetail"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:lottie_rawRes="@raw/animacion_retail"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnListaVendedores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista de vendedores"
+        app:layout_constraintTop_toBottomOf="@id/animacionRetail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnCapturaFoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Capturar foto"
+        app:layout_constraintTop_toBottomOf="@id/btnListaVendedores"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnGraficoVentas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gráfico de ventas"
+        app:layout_constraintTop_toBottomOf="@id/btnCapturaFoto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
