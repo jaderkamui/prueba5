@@ -16,7 +16,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.compose.foundation.Image
-import com.jadermunoz.myretail.model.Seller
 
 @Composable
 fun SellerListScreen(navController: NavController) {
