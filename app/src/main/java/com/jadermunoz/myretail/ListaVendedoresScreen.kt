@@ -13,6 +13,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import androidx.compose.ui.layout.ContentScale
+import androidx.navigation.NavHostController
 
 @Composable
 fun ListaVendedoresScreen(navController: NavHostController) { // Añade navController

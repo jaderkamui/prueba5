@@ -1,4 +1,4 @@
-package com.jadermunoz.myretail.activities
+package com.jadermunoz.myretail
 
 import android.graphics.Color
 import android.os.Bundle
@@ -19,25 +19,26 @@ class GraficoVentasActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            GraficoVentasScreen()
+            Prueba5Theme { // Usa tu tema aquí
+                GraficoVentasScreen()
+            }
         }
     }
 }
 
 @Composable
 fun GraficoVentasScreen() {
-    Prueba5Theme { // Usa tu tema aquí
-        Column { // Envuelve el gráfico en un Column para que se muestre correctamente
-            val context = LocalContext.current
+    Column { // Envuelve el gráfico en un Column para que se muestre correctamente
+        val context = LocalContext.current
 
-            val entries = ArrayList<Entry>()
-            entries.add(Entry(0f, 10f))
-            entries.add(Entry(1f, 12f))
-            entries.add(Entry(2f, 8f))
-            entries.add(Entry(3f, 15f))
-            entries.add(Entry(4f, 9f))
+        val entries = ArrayList<Entry>()
+        entries.add(Entry(0f, 10f))
+        entries.add(Entry(1f, 12f))
+        entries.add(Entry(2f, 8f))
+        entries.add(Entry(3f, 15f))
+        entries.add(Entry(4f, 9f))
 
-            val dataSet = LineDataSet(entries, "Ventas")
+        val dataSet = LineDataSet(entries, "Ventas")
             dataSet.color = Color.BLUE // Usa android.graphics.Color
 
             val data = LineData(dataSet)
@@ -54,5 +55,4 @@ fun GraficoVentasScreen() {
                 }
             )
         }
-    }
 }
