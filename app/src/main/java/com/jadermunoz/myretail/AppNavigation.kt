@@ -1,48 +1,82 @@
 package com.jadermunoz.myretail
 
+import android.content.Intent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.jadermunoz.myretail.CapturaFotoActivity
+import com.jadermunoz.myretail.ListaVendedoresScreen // Importa el Composable
 
 @Composable
 fun AppNavigation() {
-    // Crea un NavController que se usa para la navegación
-    val navController: NavHostController = rememberNavController()
+    val navController = rememberNavController()
 
-    // Define la navegación de la aplicación.
-    // En este ejemplo se definen tres rutas: "home", "list" y "details".
-    NavHost(navController = navController, startDestination = "home") {
-        composable("home") {
-            HomeScreen(navController = navController)
+    NavHost(navController = navController, startDestination = "splash") {
+        composable("splash") {
+            SplashScreen(navController)
+        }
+        composable("main") {
+            MainScreen(navController)
         }
         composable("list") {
-            VendorsListScreen(navController = navController)
+            ListaVendedoresScreen(navController)
         }
         composable("details") {
-            DetailsScreen(navController = navController)
+            DetailsScreen(navController)
         }
     }
 }
 
-// A continuación se incluyen ejemplos de composables para cada ruta.
-// Si ya tienes implementaciones, sustitúyelas por tus propias funciones.
-
-@Composable
-fun HomeScreen(navController: NavHostController) {
-    // Ejemplo de pantalla de inicio
-    // Puedes agregar tu UI aquí y un botón para navegar a otra pantalla.
-}
-
-@Composable
-fun VendorsListScreen(navController: NavHostController) {
-    // Ejemplo de pantalla con una lista de vendedores.
-    // Implementa tu UI de lista de vendedores aquí.
-}
-
 @Composable
 fun DetailsScreen(navController: NavHostController) {
-    // Ejemplo de pantalla de detalles
-    // Implementa tu UI de detalles aquí.
+
+}
+
+@Composable
+fun MainScreen(navController: NavHostController) {
+
+}
+
+@Composable
+fun SplashScreen(navController: NavHostController) { // ... (sin cambios) }
+
+    @Composable
+    fun MainScreen(navController: NavHostController) {
+        val context = LocalContext.current
+        Column {
+            Text("Pantalla principal")
+            Button(onClick = { navController.navigate("list") }) {
+                Text("Ir a la lista de vendedores")
+            }
+            Button(onClick = {
+                val intent = Intent(context, CapturaFotoActivity::class.java)
+                context.startActivity(intent)
+            }) {
+                Text("Ir a Captura de Foto")
+            }
+            Button(onClick = {
+                val intent =
+                    Intent(context, ListaVendedoresActivity::class.java) // Inicia la Activity
+                context.startActivity(intent)
+            }) {
+                Text("Ir a Lista de Vendedores (Activity)")
+            }
+        }
+    }
+
+    @Composable
+    fun ListaVendedoresScreen(navController: NavHostController) {
+        // ... (código de la pantalla)
+    }
+
+    @Composable
+    fun DetailsScreen(navController: NavHostController) {
+        // ... (sin cambios) }
+    }
 }
