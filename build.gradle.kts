@@ -1,21 +1,8 @@
-buildscript {
-    val kotlin_version = "1.9.20" // Versión de Kotlin
-
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.8.0") // Versión del plugin de Android
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-    }
+plugins {
+    id("com.android.application") version "8.1.4" apply false // O la versión más reciente
+    id("org.jetbrains.kotlin.android") version "1.8.22" apply false // O la versión más reciente
 }
 
-subprojects {
-    this.buildDir = file("${rootProject.buildDir}/${project.name}")
-    evaluationDependsOnChildren()
-}
-
-tasks.register("clean", Delete::class) {
+tasks.register("clean") {
     delete(rootProject.buildDir)
 }
