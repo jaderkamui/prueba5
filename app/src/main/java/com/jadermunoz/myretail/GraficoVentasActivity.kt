@@ -1,25 +1,25 @@
-package com.jadermunoz.myretail
+package com.jadermunoz.myretail.activities
 
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.text.color
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.jadermunoz.myretail.ui.theme.Prueba5Theme // Importa tu tema
+import com.jadermunoz.myretail.ui.theme.Prueba5Theme
 
 class GraficoVentasActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Prueba5Theme { // Usa tu tema aquí
+            Prueba5Theme {
                 GraficoVentasScreen()
             }
         }
@@ -28,7 +28,7 @@ class GraficoVentasActivity : ComponentActivity() {
 
 @Composable
 fun GraficoVentasScreen() {
-    Column { // Envuelve el gráfico en un Column para que se muestre correctamente
+    Column {
         val context = LocalContext.current
 
         val entries = ArrayList<Entry>()
@@ -39,20 +39,19 @@ fun GraficoVentasScreen() {
         entries.add(Entry(4f, 9f))
 
         val dataSet = LineDataSet(entries, "Ventas")
-            dataSet.color = Color.BLUE // Usa android.graphics.Color
+        dataSet.color = Color.BLUE
+        dataSet.valueTextColor = Color.BLACK
 
-            val data = LineData(dataSet)
+        val lineData = LineData(dataSet)
 
-            AndroidView(
-                factory = { context ->
-                    LineChart(context).apply {
-                        this.data = data
-
-                        description.isEnabled = false // Oculta la descripción
-
-                        invalidate() // Refresca el gráfico
-                    }
+        AndroidView(
+            factory = { context ->
+                LineChart(context).apply {
+                    this.data = lineData
+                    description.isEnabled = false
+                    invalidate()
                 }
-            )
-        }
+            }
+        )
+    }
 }
