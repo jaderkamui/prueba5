@@ -5,8 +5,8 @@ pluginManagement {
         gradlePluginPortal()
     }
     plugins {
-        id("com.android.application") version "8.3.0" apply false // O la versión más reciente
-        id("org.jetbrains.kotlin.android") version "1.9.20" apply false // O la versión más reciente
+        id("com.android.application") version "8.2.2" apply false
+        id("org.jetbrains.kotlin.android") version "1.9.22" apply false
     }
 }
 
@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://jitpack.io") } // Agrega esta línea
+        maven { url = uri("https://jitpack.io") }
     }
 }
 

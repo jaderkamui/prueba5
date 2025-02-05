@@ -2,17 +2,16 @@ package com.jadermunoz.myretail
 
 import android.graphics.Color
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.text.color
 
 @Composable
 fun SalesChartScreen() {
-    val context = LocalContext.current
 
     val entries = ArrayList<BarEntry>()
     entries.add(BarEntry(0f, 10f))
@@ -27,8 +26,8 @@ fun SalesChartScreen() {
     val data = BarData(dataSet)
 
     AndroidView(
-        factory = { context ->
-            BarChart(context).apply {
+        factory = { chartContext -> // Se cambió el nombre de context a chartContext
+            BarChart(chartContext).apply {
                 this.data = data
 
                 val xAxis = this.xAxis

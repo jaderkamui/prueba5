@@ -8,15 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Color.Black,
-    secondary = Color.Gray,
-    tertiary = Color.DarkGray
+    primary =   Purple80,
+    secondary = PurpleGrey80,
+    tertiary = Pink80
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Color.White,
-    secondary = Color.LightGray,
-    tertiary = Color.Gray
+    primary = Purple40,
+    secondary = PurpleGrey40,
+    tertiary = Pink40
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -30,7 +30,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun Prueba5Theme(
+fun MyRetailTheme( // Cambiado el nombre del tema a MyRetailTheme
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {

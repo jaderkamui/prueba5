@@ -2,7 +2,9 @@ package com.jadermunoz.myretail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -10,25 +12,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun MainScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(top = 50.dp), // Añadir padding superior
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center // Centrar verticalmente
     ) {
-        Button(onClick = { navController.navigate("sellerList") }, modifier = Modifier.padding(8.dp)) {
-            Text(text = "Lista de Vendedores")
+        Text("Pantalla principal")
+        Spacer(modifier = Modifier.height(16.dp)) // Añadir espacio entre el texto y el primer botón
+        Button(onClick = { navController.navigate("list") }) {
+            Text("Ir a la lista de vendedores")
         }
-        Button(onClick = { navController.navigate("camera") }, modifier = Modifier.padding(8.dp)) {
-            Text(text = "Capturar Foto")
-        }
-        Button(onClick = { navController.navigate("salesChart") }, modifier = Modifier.padding(8.dp)) {
-            Text(text = "Gráfico de Ventas")
+        Spacer(modifier = Modifier.height(16.dp)) // Añadir espacio entre botones
+        Button(onClick = { navController.navigate("grafico") }) {
+            Text("Ir a Gráfico de Ventas")
         }
     }
 }
