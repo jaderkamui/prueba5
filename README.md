@@ -50,7 +50,8 @@ Esta aplicación móvil para Android, desarrollada en Kotlin, tiene como objetiv
 * **Compatibilidad:** La aplicacion es compatible con android 8 en adelante.
 
 ## Capturas de Pantalla
-(Aqui puedes agregar capturas de pantalla de tu aplicacion)
+
+![Captura de pantalla 2025-02-05 010851](https://github.com/user-attachments/assets/21197b27-d4eb-4cc9-9acf-10481db52b51)
 
 ## Autor
 
